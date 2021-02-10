@@ -143,7 +143,7 @@ showActionButton | Display a button at the end of the input | no | false
 actionButtonIcon | Action button icon (from https://bootstrap-vue.org/docs/icons) | no | box-arrow-up-right
 iconVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
 
-## Event
+## Events
 
 Event | Description
 -|-
@@ -154,7 +154,7 @@ actionButtonClick | When a button is clicked
 
 ## Style customizing
 
-Styles | Description
+Style | Description
 -|-
 .inputsearch-container | container box style
 .inputsearch-result | result box style
