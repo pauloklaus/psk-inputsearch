@@ -6,9 +6,15 @@
         "name": "Paulo Sergio Klaus",
         "email": "contato@pauloklaus.com.br"
     },
-    "repository": "https://github.com/pauloklaus/vue-inputsearch",
-    "bugs": "https://github.com/pauloklaus/vue-inputsearch/issues",
-    "keywords": ["input", "vue", "search", "api", "autocomplete"],
+    "repository": "https://github.com/pauloklaus/psk-inputsearch",
+    "bugs": "https://github.com/pauloklaus/psk-inputsearch/issues",
+    "keywords": [
+        "input",
+        "vue",
+        "search",
+        "api",
+        "autocomplete"
+    ],
     "license": "MIT",
     "private": false,
     "scripts": {
