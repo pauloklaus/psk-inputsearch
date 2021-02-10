@@ -2,8 +2,7 @@
 
 Input Vue component for searching data in an API.
 
-* Repository: https://github.com/pauloklaus/psk-inputsearch
-* Report bugs: https://github.com/pauloklaus/psk-inputsearch/issues
+* Report bugs: https://github.com/pauloklaus/vue-inputsearch/issues
 
 ## Install
 ```
