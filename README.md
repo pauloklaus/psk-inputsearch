@@ -148,7 +148,7 @@ customFormatResult | Function to customize the result object | no | null
 value | Value (an object like this { id: 1, descript: "Test 1" }) to bind selection | no | null
 showActionButton | Display a button at the end of the input | no | false
 actionButtonIcon | Action button icon (from https://bootstrap-vue.org/docs/icons) | no | box-arrow-up-right
-iconVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
+buttonVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
 
 ## Events
 
