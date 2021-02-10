@@ -18,7 +18,7 @@
     "license": "MIT",
     "private": false,
     "scripts": {
-        "build": "vue-cli-service build --target lib --name InputSearch src/index.js",
+        "build": "vue-cli-service build --target lib --name InputSearch src/index.js; rm ./dist/demo.html",
         "lint": "vue-cli-service lint"
     },
     "main": "dist/InputSearch.umd.js",
