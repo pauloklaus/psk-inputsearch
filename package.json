@@ -1,0 +1,61 @@
+{
+    "name": "vue-inputsearch",
+    "version": "0.1.0",
+    "description": "Input Vue component for searching data in an API.",
+    "author": {
+        "name": "Paulo Sergio Klaus",
+        "email": "contato@pauloklaus.com.br"
+    },
+    "repository": "https://github.com/pauloklaus/vue-inputsearch",
+    "bugs": "https://github.com/pauloklaus/vue-inputsearch/issues",
+    "keywords": ["input", "vue", "search", "api", "autocomplete"],
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "build": "vue-cli-service build --target lib --name InputSearch src/index.js",
+        "lint": "vue-cli-service lint"
+    },
+    "main": "dist/InputSearch.umd.js",
+    "browser": "dist/InputSearch.common.js",
+    "unpkg": "dist/InputSearch.umd.min.js",
+    "jsDelivr": "dist/InputSearch.umd.min.js",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "peerDependencies": {
+        "vue": "^2.6.11"
+    },
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "vue": "^2.6.11"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}
