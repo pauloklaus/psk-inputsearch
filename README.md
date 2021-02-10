@@ -25,9 +25,6 @@ mkdir src/resources
 
 Create a src/resources/axios.js with the content:
 ```
-/* eslint-disable */
-"use strict";
-
 import Vue from "vue";
 import axios from "axios";
 
