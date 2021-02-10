@@ -5,25 +5,27 @@ Input Vue component for searching data in an API.
 * Report bugs: https://github.com/pauloklaus/psk-inputsearch/issues
 
 ## Install
-```
-npm install --save axios bootstrap bootstrap-vue psk-inputsearch
-```
-
-## Environment setting
 
 Create a new vue project:
 ```
 vue create
 ```
 
-### Configure the axios and bootstrap dependencies
+Install component and dependencies:
+```
+npm install --save axios bootstrap bootstrap-vue psk-inputsearch
+```
+
+## Environment setting
 
 Make a src/resources folder at the root:
 ```
 mkdir src/resources
 ```
 
-Create a src/resources/axios.js with the content:
+### Configure the axios
+
+Create the src/resources/axios.js with the content:
 ```
 import Vue from "vue";
 import axios from "axios";
@@ -46,7 +48,9 @@ Vue.use(Plugin);
 export default Plugin;
 ```
 
-Create a src/resources/bootstrap-vue.js:
+### Configure the bootstrap
+
+Create the src/resources/bootstrap-vue.js:
 ```
 import Vue from "vue";
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
@@ -58,6 +62,17 @@ Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 ```
 
+### Configure the psk-inputsearch
+
+Create the src/resources/psk-inputsearch.js:
+```
+import InputSearch from "psk-inputsearch";
+import "psk-inputsearch/dist/InputSearch.css";
+Vue.use(InputSearch, { InputSearchName: "MyInputSearch" });
+```
+
+### Import psk-inputsearch and dependencies
+
 The "src/main.js" file should look like this:
 ```
 import Vue from "vue";
@@ -65,6 +80,7 @@ import App from "./App.vue";
 
 import "./resources/axios";
 import "./resources/bootstrap-vue";
+import "./resources/psk-inputsearch";
 
 Vue.config.productionTip = false;
 
@@ -72,15 +88,6 @@ new Vue({
     render: h => h(App),
 }).$mount("#app");
 
-```
-
-### Import psk-inputsearch
-
-In the "src/main.js" file, include this code after import the boostrap-vue:
-```
-import InputSearch from "psk-inputsearch";
-import "psk-inputsearch/dist/InputSearch.css";
-Vue.use(InputSearch, { InputSearchName: "MyInputSearch" });
 ```
 
 ## How to use (example in App.vue)
