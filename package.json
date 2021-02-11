@@ -1,6 +1,6 @@
 {
     "name": "psk-inputsearch",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Input Vue component for searching data in an API.",
     "author": {
         "name": "Paulo Sergio Klaus",
@@ -15,7 +15,7 @@
         "api",
         "autocomplete"
     ],
-    "license": "MIT",
+    "license": "GPLv3",
     "private": false,
     "scripts": {
         "build": "vue-cli-service build --target lib --name InputSearch src/index.js; rm ./dist/demo.html",
