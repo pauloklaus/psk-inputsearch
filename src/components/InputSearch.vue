@@ -22,6 +22,13 @@
 <script>
 export default {
     props: {
+        axios: {
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        },
         inputId: {
             type: String,
             default: "inputsearch-" + Math.random().toString(36).substr(2, 5)
@@ -33,10 +40,6 @@ export default {
         disabled: {
             type: Boolean,
             default: false,
-        },
-        url: {
-            type: String,
-            required: true
         },
         debounce: {
             type: Number,
@@ -81,8 +84,13 @@ export default {
             type: String,
             default: ""
         },
-        axios: {
-            required: true
+        waitingText: {
+            type: String,
+            default: "Searching..."
+        },
+        notFoundText: {
+            type: String,
+            default: "Not found."
         }
     },
     data() {
@@ -111,7 +119,7 @@ export default {
             this.emitNewValue();
 
             try {
-                this.message = "Procurando...";
+                this.message = this.waitingText;
                 const searchResponse = await this.axios.get(this.url, { params: { term: newTerm }});
 
                 this.items = Array.isArray(searchResponse.data) ? searchResponse.data : null;
@@ -120,7 +128,7 @@ export default {
                 if (this.items && this.items.length)
                     this.message = "";
                 else {
-                    this.message = "Nada encontrado.";
+                    this.message = this.notFoundText;
 
                     setTimeout(() => {
                         this.message = "";
