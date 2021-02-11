@@ -280,6 +280,7 @@ export default {
     color: var(--light);
 }
 .inputsearch-message {
+    color: var(--secondary);
     padding: 0 5px;
     text-align: center;
 }
