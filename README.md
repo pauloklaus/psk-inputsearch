@@ -152,6 +152,8 @@ value | Value (an object like this { id: 1, descript: "Test 1" }) to bind select
 showActionButton | Display a button at the end of the input | no | false
 actionButtonIcon | Action button icon (from https://bootstrap-vue.org/docs/icons) | no | box-arrow-up-right
 buttonVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
+waitingText | Text to display while searching | no | Searching...
+notFoundText | Text to display when nothing was found | no | Not found.
 
 ## Events
 
