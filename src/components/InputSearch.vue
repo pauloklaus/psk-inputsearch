@@ -10,10 +10,10 @@
             </b-input-group-append>
         </b-input-group>
         <small v-if="description" class="form-text text-muted mb-3">{{ description }}</small>
-        <div class="inputsearch-container" v-if="(items && items.length) || message">
-            <div class="inputsearch-result">
-                <div v-if="message" class="inputsearch-message">{{ message }}</div>
-                <button v-else class="inputsearch-item" v-for="(item, index) in items" v-bind:key="index" :ref="'psk-inputsearch-item-' + index" @click="clickSelect(item)" @focus="updateSelectedItem(index)" :class="index == selectedItem ? 'inputsearch-selected' : ''">{{ getLabel(item) }}</button>
+        <div :class="containerClass" v-if="(items && items.length) || message">
+            <div :class="resultClass">
+                <div v-if="message" :class="messageClass">{{ message }}</div>
+                <button v-else v-for="(item, index) in items" v-bind:key="index" :ref="'psk-inputsearch-item-' + index" @click="clickSelect(item)" @focus="updateSelectedItem(index)" :class="index == selectedItem ? selectedClass : itemClass">{{ getLabel(item) }}</button>
             </div>
         </div>
     </div>
@@ -91,6 +91,26 @@ export default {
         notFoundText: {
             type: String,
             default: "Not found."
+        },
+        containerClass: {
+            type: String,
+            default: "inputsearch-container"
+        },
+        resultClass: {
+            type: String,
+            default: "inputsearch-result"
+        },
+        messageClass: {
+            type: String,
+            default: "inputsearch-message"
+        },
+        itemClass: {
+            type: String,
+            default: "inputsearch-item"
+        },
+        selectedClass: {
+            type: String,
+            default: "inputsearch-selected"
         }
     },
     data() {
@@ -249,7 +269,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .inputsearch-container {
     position: relative;
     z-index: 100;

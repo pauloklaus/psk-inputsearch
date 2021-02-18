@@ -154,6 +154,11 @@ actionButtonIcon | Action button icon (from https://bootstrap-vue.org/docs/icons
 buttonVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
 waitingText | Text to display while searching | no | Searching...
 notFoundText | Text to display when nothing was found | no | Not found.
+containerClass | Class of container div | no | -
+resultClass | Class of result div | no | -
+messageClass | Class of "searching" message | no | -
+itemClass | Class of item | no | -
+selectedClass | Class of selected item | no | -
 
 ## Events
 
@@ -163,16 +168,6 @@ error | Axios response on error
 change | When there is change
 keydown | When a key is pressed
 actionButtonClick | When a button is clicked
-
-## Style customizing
-
-Style | Description
--|-
-.inputsearch-container | container box style
-.inputsearch-result | result box style
-.inputsearch-item | item style
-.inputsearch-message | temporary style message
-.inputsearch-selected | selected item style
 
 ## Using in the browser
 
