@@ -252,6 +252,7 @@ export default {
 <style>
 .inputsearch-container {
     position: relative;
+    z-index: 100;
 }
 .inputsearch-result {
     background-color: var(--light);
@@ -265,7 +266,6 @@ export default {
     max-height: 180px;
     min-width: 200px;
     width: 100%;
-    /* z-index: ; */
 }
 .inputsearch-item {
     background-color: var(--light);
