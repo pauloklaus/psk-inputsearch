@@ -287,7 +287,13 @@ export default {
     min-width: 200px;
     width: 100%;
 }
-.inputsearch-item {
+.inputsearch-message {
+    color: var(--secondary);
+    padding: 0 5px;
+    text-align: center;
+}
+.inputsearch-item,
+.inputsearch-selected {
     background-color: var(--light);
     border: 0;
     cursor: pointer;
@@ -298,11 +304,6 @@ export default {
 .inputsearch-item:hover {
     background-color: var(--secondary);
     color: var(--light);
-}
-.inputsearch-message {
-    color: var(--secondary);
-    padding: 0 5px;
-    text-align: center;
 }
 .inputsearch-selected {
     background-color: var(--primary);
