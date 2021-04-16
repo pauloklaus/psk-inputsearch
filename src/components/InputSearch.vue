@@ -129,14 +129,14 @@ export default {
         async term(newTerm) {
             if (!newTerm) {
                 this.items = null;
-                this.emitNewValue();
+                this.emitNewTerm();
                 return;
             }
 
             if (this.selectedValue != null && this.getLabel(this.selectedValue) == newTerm)
                 return;
 
-            this.emitNewValue();
+            this.emitNewTerm();
 
             try {
                 this.message = this.waitingText;
@@ -205,7 +205,7 @@ export default {
             if (!this.$el.contains(event.target))
                 this.hideItems();
         },
-        emitNewValue(value) {
+        emitNewTerm(value) {
             this.selectedValue = value;
             this.$emit("input", this.customFormatResult ? this.customFormatResult(value) : value);
             this.$emit("change");
@@ -213,7 +213,7 @@ export default {
         clickSelect(value) {
             this.items = null;
             this.updateTerm(value);
-            this.emitNewValue(this.selectedValue);
+            this.emitNewTerm(this.selectedValue);
             this.focusOn(this.inputId);
         },
         scrollToItem() {
