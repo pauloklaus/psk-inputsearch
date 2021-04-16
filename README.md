@@ -1,6 +1,6 @@
 # psk-inputsearch
 
-Input Vue component for searching data in an API.
+Input Vue component for search and filtering data in an API or a static list.
 
 * Report bugs: https://github.com/pauloklaus/psk-inputsearch/issues
 * Live test: https://pauloklaus.com.br/playground
@@ -14,7 +14,7 @@ vue create
 
 Install component and dependencies:
 ```
-npm install --save axios bootstrap bootstrap-vue psk-inputsearch
+npm install --save bootstrap bootstrap-vue psk-inputsearch
 ```
 
 ## Environment setting
@@ -22,31 +22,6 @@ npm install --save axios bootstrap bootstrap-vue psk-inputsearch
 Make a src/resources folder at the root:
 ```
 mkdir src/resources
-```
-
-### Configure the axios
-
-Create the src/resources/axios.js with the content:
-```
-import Vue from "vue";
-import axios from "axios";
-
-const http = axios.create({
-    timeout: 60 * 1000,
-});
-
-Plugin.install = function(Vue, options) {
-    Object.defineProperties(Vue.prototype, {
-        $axios: {
-            get() {
-                return http;
-            }
-        }
-    });
-};
-
-Vue.use(Plugin);
-export default Plugin;
 ```
 
 ### Configure the bootstrap
@@ -81,7 +56,6 @@ The "src/main.js" file should look like this:
 import Vue from "vue";
 import App from "./App.vue";
 
-import "./resources/axios";
 import "./resources/bootstrap-vue";
 import "./resources/psk-inputsearch";
 
@@ -97,8 +71,12 @@ new Vue({
 ```
 <template>
     <div>
-        My Input Search
-        <my-input-search :url="url" text-field="title" :axios="$axios" v-model="value" placeholder="Find a product..." />
+        <p>My Input Search in API
+        <br><my-input-search text-field="title" v-model="value" placeholder="Find a product..." :searchMethod="searchInAPI" />
+        <br>{{ error }}</p>
+
+        <p>My Input Search in static list
+        <br><my-input-search text-field="title" v-model="value" placeholder="Find a product..." :searchMethod="searchInAPI" /></p>
     </div>
 </template>
 
@@ -106,8 +84,31 @@ new Vue({
 export default {
     data() {
         return {
-            url: "https://fakestoreapi.com/products",
+            people: [
+                { id: 4, description: "Dennis Ritchie" },
+                { id: 3, description: "Grace Hopper" },
+                { id: 2, description: "John Backus" },
+                { id: 1, description: "John McCarthy" },
+                { id: 6, description: "Ken Thompson" },
+                { id: 5, description: "Robin Milner" },
+            ],
+            error: null,
             value: {}
+        }
+    },
+    methods: {
+        searchOnApi(term) {
+            try {
+                const searchResponse = await this.$axios.get("https://fakestoreapi.com/products", { params: { term: term }});
+                return Array.isArray(searchResponse.data) ? searchResponse.data : null;
+            }
+            catch (error) {
+                this.$emit("error", error);
+            }
+            return null;
+        },
+        searchInStaticList(term) {
+            return this.people.filter(item => item.description.toLowerCase().indexOf(term) > -1 );
         }
     }
 }
@@ -136,8 +137,7 @@ button:focus {
 
 Property | Description | Required | Default
 -|-|-|-
-url | API url | yes |
-axios | Axios instance | yes |
+searchMethod | Method to start search and return a filtered array. Has a term parameter with the typed text. | yes |
 inputId | html id to the input element | no | random id
 autofocus | Focus on load page | no | false
 disabled | To disable user input | no | false
@@ -164,7 +164,6 @@ selectedClass | Class of selected item | no | -
 
 Event | Description
 -|-
-error | Axios response on error
 change | When there is change
 keydown | When a key is pressed
 actionButtonClick | When a button is clicked

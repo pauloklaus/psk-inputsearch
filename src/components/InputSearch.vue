@@ -22,11 +22,8 @@
 <script>
 export default {
     props: {
-        axios: {
-            required: true
-        },
-        url: {
-            type: String,
+        searchMethod: {
+            type: Function,
             required: true
         },
         inputId: {
@@ -138,26 +135,18 @@ export default {
 
             this.emitNewTerm();
 
-            try {
-                this.message = this.waitingText;
-                const searchResponse = await this.axios.get(this.url, { params: { term: newTerm }});
+            this.message = this.waitingText;
+            this.items = await this.searchMethod(newTerm);
+            this.selectedItem = 0;
 
-                this.items = Array.isArray(searchResponse.data) ? searchResponse.data : null;
-                this.selectedItem = 0;
-
-                if (this.items && this.items.length)
-                    this.message = "";
-                else {
-                    this.message = this.notFoundText;
-
-                    setTimeout(() => {
-                        this.message = "";
-                    }, 1000);
-                }
-            }
-            catch (error) {
+            if (this.items && this.items.length)
                 this.message = "";
-                this.$emit("error", error);
+            else {
+                this.message = this.notFoundText;
+
+                setTimeout(() => {
+                    this.message = "";
+                }, 1000);
             }
         }
     },
