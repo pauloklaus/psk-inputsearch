@@ -97,7 +97,7 @@ export default {
         }
     },
     methods: {
-        searchInApi(term) {
+        async searchInApi(term) {
             try {
                 const searchResponse = await this.$axios.get("https://fakestoreapi.com/products", { params: { term: term }});
                 return Array.isArray(searchResponse.data) ? searchResponse.data : null;

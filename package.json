@@ -1,6 +1,6 @@
 {
     "name": "psk-inputsearch",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "Input Vue component for searching data in an API.",
     "author": {
         "name": "Paulo Sergio Klaus",
