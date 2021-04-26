@@ -4,7 +4,7 @@
             <template v-slot:prepend>
                 <b-input-group-text><b-icon-search /></b-input-group-text>
             </template>
-            <b-form-input :id="inputId" :debounce="debounce" v-model="term" @keydown="keyDown" @keydown.f2="emitButtonClick" :placeholder="placeholder" :autofocus="autofocus" :disabled="disabled" autocomplete="off" />
+            <b-form-input :id="internalId" :debounce="debounce" v-model="term" @keydown="keyDown" @keydown.f2="emitButtonClick" :placeholder="placeholder" :autofocus="autofocus" :disabled="disabled" autocomplete="off" />
             <b-input-group-append>
                 <b-button @click.stop="emitButtonClick" v-if="showActionButton" :disabled="!value || value.id == 0" :variant="buttonVariant"><b-icon :icon="actionButtonIcon" /></b-button>
             </b-input-group-append>
@@ -28,7 +28,7 @@ export default {
         },
         inputId: {
             type: String,
-            default: "inputsearch-" + Math.random().toString(36).substr(2, 5)
+            default: ""
         },
         autofocus: {
             type: Boolean,
@@ -116,7 +116,8 @@ export default {
             term: "",
             items: null,
             selectedItem: 0,
-            selectedValue: null
+            selectedValue: null,
+            internalId: this.inputId ? this.inputId : "inputsearch-" + Math.random().toString(36).substr(2, 5)
         }
     },
     watch: {
@@ -188,7 +189,7 @@ export default {
         },
         cancelSearch() {
             this.hideItems();
-            this.focusOn(this.inputId);
+            this.focusOn(this.internalId);
         },
         stopSearch(event) {
             if (!this.$el.contains(event.target))
@@ -203,7 +204,7 @@ export default {
             this.items = null;
             this.updateTerm(value);
             this.emitNewTerm(this.selectedValue);
-            this.focusOn(this.inputId);
+            this.focusOn(this.internalId);
         },
         scrollToItem() {
             const item = this.$refs["psk-inputsearch-item-" + this.selectedItem];
