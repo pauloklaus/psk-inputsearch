@@ -76,7 +76,7 @@ new Vue({
         <br>{{ error }}</p>
 
         <p>My Input Search in static list
-        <br><my-input-search text-field="title" v-model="value" placeholder="Find a product..." :searchMethod="searchInAPI" /></p>
+        <br><my-input-search text-field="title" v-model="value" placeholder="Find a person..." :searchMethod="searchInStaticList" /></p>
     </div>
 </template>
 
@@ -108,7 +108,7 @@ export default {
             return null;
         },
         searchInStaticList(term) {
-            return this.people.filter(item => item.description.toLowerCase().indexOf(term) > -1 );
+            return term ? this.people.filter(item => item.description.toLowerCase().indexOf(term) > -1 ) : this.people;
         }
     }
 }
