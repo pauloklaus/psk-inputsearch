@@ -259,7 +259,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .inputsearch-container {
     position: relative;
     z-index: 100;

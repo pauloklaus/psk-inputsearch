@@ -68,7 +68,7 @@ new Vue({
 ```
 
 ## How to use (example in App.vue)
-```
+```html
 <template>
     <div>
         <p>My Input Search in API
@@ -159,6 +159,16 @@ resultClass | Class of result div | no | -
 messageClass | Class of "searching" message | no | -
 itemClass | Class of item | no | -
 selectedClass | Class of selected item | no | -
+
+Instead of informing the CSS classes via property, it is possible to redefine them:
+
+* inputsearch-container
+* inputsearch-result
+* inputsearch-message
+* inputsearch-item
+* inputsearch-selected
+* inputsearch-item:hover
+* inputsearch-selected
 
 ## Events
 
