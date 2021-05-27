@@ -2,32 +2,36 @@
 
 Input Vue component for search and filtering data in an API or a static list.
 
-* Report bugs: https://github.com/pauloklaus/psk-inputsearch/issues
-* Live test: https://pauloklaus.com.br/playground
+* Report bugs: <https://github.com/pauloklaus/psk-inputsearch/issues>
+* Live test: <https://pauloklaus.com.br/playground>
 
 ## Install
 
 Create a new vue project:
-```
+
+```shell
 vue create
 ```
 
 Install component and dependencies:
-```
+
+```shell
 npm install --save bootstrap bootstrap-vue psk-inputsearch
 ```
 
 ## Environment setting
 
 Make a src/resources folder at the root:
-```
+
+```shell
 mkdir src/resources
 ```
 
 ### Configure the bootstrap
 
 Create the src/resources/bootstrap-vue.js:
-```
+
+```javascript
 import Vue from "vue";
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 
@@ -41,7 +45,8 @@ Vue.use(BootstrapVueIcons);
 ### Configure the psk-inputsearch
 
 Create the src/resources/psk-inputsearch.js:
-```
+
+```javascript
 import Vue from "vue";
 import InputSearch from "psk-inputsearch";
 import "psk-inputsearch/dist/InputSearch.css";
@@ -52,7 +57,8 @@ Vue.use(InputSearch, { InputSearchName: "MyInputSearch" });
 ### Import psk-inputsearch and dependencies
 
 The "src/main.js" file should look like this:
-```
+
+```javascript
 import Vue from "vue";
 import App from "./App.vue";
 
@@ -68,7 +74,8 @@ new Vue({
 ```
 
 ## How to use (example in App.vue)
-```html
+
+```vue
 <template>
     <div>
         <p>My Input Search in API
@@ -126,7 +133,8 @@ button:focus {
 ```
 
 ## Default JSON format
-```
+
+```json
 [
     { id: 1, description: "Test 1" },
     { id: 2, description: "Test 2" }
@@ -150,7 +158,7 @@ customText | Function to customize text to display in the input | no | null
 customFormatResult | Function to customize the result object | no | null
 value | Value (an object like this { id: 1, descript: "Test 1" }) to bind selection | no | null
 showActionButton | Display a button at the end of the input | no | false
-actionButtonIcon | Action button icon (from https://bootstrap-vue.org/docs/icons) | no | box-arrow-up-right
+actionButtonIcon | Action button icon (from <https://bootstrap-vue.org/docs/icons>) | no | box-arrow-up-right
 buttonVariant | Variant bootstrap color to the button: primary, secondary, success, warning, danger, info, light, dark | no | null
 waitingText | Text to display while searching | no | Searching...
 notFoundText | Text to display when nothing was found | no | Not found.
@@ -181,7 +189,8 @@ actionButtonClick | When a button is clicked
 ## Using in the browser
 
 To use directly in the browser, import bootstrap-vue before psk-inputsearch:
-```
+
+```html
 <script src="https://unpkg.com/vue-boostrap" />
 <script src="https://unpkg.com/psk-inputsearch" />
 ```
